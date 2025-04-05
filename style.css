@@ -1,0 +1,364 @@
+/* Общая стилизация */
+body {
+    margin: 0;
+    font-family: "Segoe UI", sans-serif;
+    background-color: #fff;
+    color: #222;
+    scroll-behavior: smooth;
+}
+  
+.services {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+
+.services h2 {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+  
+/* Шапка */
+.header {
+    background-color: #ffffff;
+    padding: 10px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #ddd;
+}
+
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.service-card {
+    background-color: #f2f2f2;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+  
+.logo img {
+    max-height: 58px;
+    width: auto;
+}
+
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+  
+.nav {
+    display: flex;
+    align-items: center;
+}
+  
+.nav-list {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+  
+.nav-list li a {
+    color: #000000;
+    text-decoration: none;
+    font-size: 20px;
+    transition: 0.3s;
+}
+  
+.nav-list li a:hover {
+    color: #f0c040;
+}
+  
+/* Главный блок */
+.hero {
+    position: relative;
+    background: url('img/background/hero-bg.jpg') no-repeat center center / cover;
+    height: 100vh;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 1;
+    overflow: hidden;
+  }
+  
+  .hero .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5); /* затемнение */
+    z-index: 1;
+  }
+  
+  .hero .container {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .hero h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+  }
+  
+  .hero .btn {
+    display: inline-block;
+    padding: 14px 30px;
+    background-color: #f0c040;
+    color: #111;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 18px;
+    transition: 0.3s;
+  }
+  
+  .hero .btn:hover {
+    background-color: #fff;
+    color: #111;
+  }
+  
+/* О компании */
+.about {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+}
+  
+.about h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+  
+.about h3 {
+    font-size: 24px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+  
+.about p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+  
+.about ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+  
+.about ul li {
+    margin-bottom: 10px;
+}
+  
+/* Проекты */
+.projects {
+    padding: 60px 0;
+    background-color: #fff;
+}
+
+.service-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 15px;
+    filter: drop-shadow(0 4px 10px rgba(255, 192, 0, 0.5));
+}
+  
+.projects h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+  
+.projects-grid {
+    display:inline-block;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+  
+.project-card {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+  
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+  
+.project-card h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+  
+.project-card p {
+    font-size: 14px;
+    color: #555;
+}
+  
+/* Контакты */
+.contacts {
+    padding: 60px 0;
+    background-color: #f9f9f9;
+}
+  
+.contacts h2 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.contacts-wrapper {
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .contact-map {
+    flex: 1;
+    min-width: 320px;
+    height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .contact-info-form {
+    flex: 1;
+    min-width: 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .contact-info {
+    font-size: 16px;
+  }
+  
+  .contact-info a {
+    color: #000;
+    text-decoration: none;
+  }
+  
+  .contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    resize: none;
+  }
+  
+  .contact-form button {
+    padding: 12px;
+    background-color: #111;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+  
+  .contact-form button:hover {
+    background-color: #f0c040;
+    color: #111;
+  }
+
+/* Подвал */
+footer {
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+.project-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.project-images {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.service-card h4 {
+    font-size: 18px;
+    color: #111;
+}
+
+.project-images img {
+    width: calc(33.33% - 7px);
+    border-radius: 8px;
+    object-fit: cover;
+    height: 150px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+}
+  
+.project-images img:hover {
+    transform: scale(1.03);
+}
+
+.contact-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+  }
+  
+  .icon-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #f0c040;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    filter: drop-shadow(0 4px 10px rgba(255, 192, 0, 0.5));
+  }
+  
+  .icon-circle svg {
+    width: 18px;
+    height: 18px;
+    fill: #111;
+  }
