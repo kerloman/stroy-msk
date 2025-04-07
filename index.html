@@ -224,7 +224,20 @@
   
           <form id="contact-form" class="contact-form" action="form-handler.php" method="POST">
             <input type="text" name="name" placeholder="Ваше имя" required />
-            <input type="tel" name="phone" placeholder="Телефон" required />
+            <div class="phone-wrapper">
+              <label class="phone-label" for="phone">
+                <span class="phone-floating-label">Телефон</span>
+                <input
+                  type="tel"
+                  name="phone"
+                  id="phone"
+                  placeholder="+7 (___) ___-__-__"
+                  required
+                  maxlength="18"
+                />
+                <span class="phone-mask-dynamic" id="phone-mask"></span>
+              </label>
+            </div>
             <textarea name="message" rows="4" placeholder="Ваш комментарий"></textarea>
             <button type="submit">Оставить заявку</button>
           </form>
