@@ -154,3 +154,89 @@ document.addEventListener('click', (e) => {
     document.body.style.overflow = '';
   }
 });
+
+const swiper = new Swiper('.projects-slider', {
+  loop: false,
+  spaceBetween: 20,
+  slidesPerView: 1,
+  pagination: {
+    el: '.swiper-pagination',
+    clickable: true,
+  },
+  breakpoints: {
+    769: {
+      slidesPerView: 2,
+    },
+    1024: {
+      slidesPerView: 3,
+    },
+  }
+});
+
+const modal = document.getElementById("imageModal");
+const modalImg = document.getElementById("modalImage");
+const modalClose = document.getElementById("modalClose");
+
+const galleryImages = Array.from(document.querySelectorAll(".project-images img"));
+let currentImageIndex = 0;
+
+console.log("Всего изображений:", galleryImages.length);
+galleryImages.forEach((img, index) => {
+  console.log("Обнаружено изображение:", img.src);
+  img.addEventListener("click", () => {
+    if (!img.complete || img.naturalWidth === 0) return;
+    modal.style.display = "flex";
+    modalImg.src = img.src;
+    currentImageIndex = index;
+  });
+});
+
+function showImage(index) {
+  if (index >= 0 && index < galleryImages.length) {
+    modalImg.src = galleryImages[index].src;
+    currentImageIndex = index;
+  }
+}
+
+document.querySelector(".modal-prev").addEventListener("click", (e) => {
+  e.stopPropagation();
+  showImage(currentImageIndex - 1);
+});
+
+document.querySelector(".modal-next").addEventListener("click", (e) => {
+  e.stopPropagation();
+  showImage(currentImageIndex + 1);
+});
+
+window.addEventListener("keydown", (e) => {
+  if (modal.style.display === "flex") {
+    if (e.key === "Escape") {
+      e.stopImmediatePropagation();
+      e.preventDefault();
+      modal.style.display = "none";
+    }
+    if (e.key === "ArrowLeft") showImage(currentImageIndex - 1);
+    if (e.key === "ArrowRight") showImage(currentImageIndex + 1);
+  }
+});
+
+let touchStartX = 0;
+modal.addEventListener("touchstart", (e) => {
+  touchStartX = e.touches[0].clientX;
+});
+
+modal.addEventListener("touchend", (e) => {
+  const deltaX = e.changedTouches[0].clientX - touchStartX;
+  if (deltaX > 50) showImage(currentImageIndex - 1);
+  if (deltaX < -50) showImage(currentImageIndex + 1);
+});
+
+modalClose.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+
+modal.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});

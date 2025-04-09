@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>СТРОЙ-МСК</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 <body>
 
@@ -125,63 +126,66 @@
   <section id="projects" class="projects">
     <div class="container">
       <h2>Наши проекты</h2>
-      <div class="projects-grid">
+      <div class="swiper projects-slider">
+        <div class="swiper-wrapper">
   
-        <div class="project-card">
-          <h4>Бутик TISSOT</h4>
-          <p>Санкт-Петербург</p>
-          <div class="project-images">
-            <img src="img/project_21_1.jpeg" />
-            <img src="img/project_21_2.jpeg" />
-            <img src="img/project_22_2.jpeg" />
+          <div class="swiper-slide project-card">
+            <h4>Бутик TISSOT</h4>
+            <p>Санкт-Петербург</p>
+            <div class="project-images">
+              <img src="img/project_21_1.jpeg" />
+              <img src="img/project_21_2.jpeg" />
+              <img src="img/project_22_2.jpeg" />
+            </div>
           </div>
-        </div>
   
-        <div class="project-card">
-          <h4>Бутик Montblanc</h4>
-          <p>Москва</p>
-          <div class="project-images">
-            <img src="img/project_23_1.jpeg" />
-            <img src="img/project_23_2.jpeg" />
+          <div class="swiper-slide project-card">
+            <h4>Бутик Montblanc</h4>
+            <p>Москва</p>
+            <div class="project-images">
+              <img src="img/project_23_1.jpeg" />
+              <img src="img/project_23_2.jpeg" />
+            </div>
           </div>
-        </div>
   
-        <div class="project-card">
-          <h4>Устройство фасадов</h4>
-          <p>Большая татарская д.13</p>
-          <div class="project-images">
-            <img src="img/project_24_1.jpeg" />
-            <img src="img/project_24_2.jpeg" />
+          <div class="swiper-slide project-card">
+            <h4>Устройство фасадов</h4>
+            <p>Большая татарская д.13</p>
+            <div class="project-images">
+              <img src="img/project_24_1.jpeg" />
+              <img src="img/project_24_2.jpeg" />
+            </div>
           </div>
-        </div>
   
-        <div class="project-card">
-          <h4>Внутренние инженерные системы</h4>
-          <p>MО, г/о Котельники, г. Котельники, мкр. "Новые Котельники" дом 18</p>
-          <div class="project-images">
-            <img src="img/project_25_2.jpeg" />
-            <img src="img/project_25_1.jpeg" />
+          <div class="swiper-slide project-card">
+            <h4>Внутренние инженерные системы</h4>
+            <p>MО, г/о Котельники, г. Котельники, мкр. "Новые Котельники" дом 18</p>
+            <div class="project-images">
+              <img src="img/project_25_2.jpeg" />
+              <img src="img/project_25_1.jpeg" />
+            </div>
           </div>
-        </div>
   
-        <div class="project-card">
-          <h4>Устройство фасадов, кровля, благоустройство</h4>
-          <p>Большая татарская д.13</p>
-          <div class="project-images">
-            <img src="img/project_28_1.jpeg" />
-            <img src="img/project_28_2.jpeg" />
+          <div class="swiper-slide project-card">
+            <h4>Устройство фасадов, кровля, благоустройство</h4>
+            <p>Большая татарская д.13</p>
+            <div class="project-images">
+              <img src="img/project_28_1.jpeg" />
+              <img src="img/project_28_2.jpeg" />
+            </div>
           </div>
-        </div>
   
-        <div class="project-card">
-          <h4>Устройство фасадов</h4>
-          <p>Бизнес центр Интеграл</p>
-          <div class="project-images">
-            <img src="img/project_29_1.jpeg" />
-            <img src="img/project_29_2.jpeg" />
+          <div class="swiper-slide project-card">
+            <h4>Устройство фасадов</h4>
+            <p>Бизнес центр Интеграл</p>
+            <div class="project-images">
+              <img src="img/project_29_1.jpeg" />
+              <img src="img/project_29_2.jpeg" />
+            </div>
           </div>
-        </div>
   
+        </div>
+        <div class="swiper-pagination"></div>
       </div>
     </div>
   </section>
@@ -259,12 +263,23 @@
     </div>
   </section>
 
+  <!-- Модальное окно изображения -->
+  <div id="imageModal" class="modal">
+    <span class="modal-close" id="modalClose">&times;</span>
+    <img class="modal-content" id="modalImage" />
+    <div class="modal-controls">
+      <span class="modal-prev">&#10094;</span>
+      <span class="modal-next">&#10095;</span>
+    </div>
+  </div>
+
   <!-- Подвал -->
   <footer>
     <div class="container">
       <p>© СТРОЙ-МСК, 2025. Все права защищены.</p>
     </div>
   </footer>
-    <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
