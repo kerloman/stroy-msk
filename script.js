@@ -1,4 +1,3 @@
-// Плавная прокрутка
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -29,7 +28,7 @@ phoneInput.addEventListener('input', (e) => {
     val = val.slice(1);
   }
 
-  // Удаляем ведущие символы, кроме первой 7
+  // УдаляемLeading символы, кроме первой 7
   if (!val.startsWith('7')) {
     val = '7' + val;
   }
@@ -111,5 +110,47 @@ phoneInput.addEventListener('keydown', (e) => {
   }
   if (digits.length <= 1) {
       maskElement.textContent = '(___) ___-__-__';
+  }
+});
+
+const burger = document.getElementById('burger');
+const mobileNav = document.getElementById('mobileNav');
+const closeNav = document.getElementById('closeNav');
+
+burger.addEventListener('click', (e) => {
+  e.stopPropagation();
+  mobileNav.classList.add('open');
+  burger.style.display = 'none';
+  document.body.style.overflow = 'hidden';
+});
+
+document.querySelectorAll('#mobileNav a').forEach(link => {
+  link.addEventListener('click', (event) => {
+    event.stopPropagation();
+    burger.style.display = 'block';
+    mobileNav.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+});
+
+closeNav.addEventListener('click', (event) => {
+  event.stopPropagation();
+  mobileNav.classList.remove('open');
+  burger.style.display = 'block';
+});
+
+document.addEventListener('click', (e) => {
+  const nav = document.getElementById('mobileNav');
+  const burger = document.getElementById('burger');
+  const isNavOpen = nav.classList.contains('open');
+
+  if (
+    isNavOpen &&
+    !nav.contains(e.target) &&
+    !burger.contains(e.target)
+  ) {
+    nav.classList.remove('open');
+    burger.style.display = 'block';
+    document.body.style.overflow = '';
   }
 });
