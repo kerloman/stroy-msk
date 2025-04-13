@@ -126,10 +126,19 @@ burger.addEventListener('click', (e) => {
 
 document.querySelectorAll('#mobileNav a').forEach(link => {
   link.addEventListener('click', (event) => {
-    event.stopPropagation();
-    burger.style.display = 'block';
-    mobileNav.classList.remove('open');
-    document.body.style.overflow = '';
+    const targetId = link.getAttribute('href');
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      event.preventDefault();
+      targetElement.scrollIntoView({ behavior: 'smooth' });
+
+      // Закрыть меню только после завершения прокрутки
+      setTimeout(() => {
+        mobileNav.classList.remove('open');
+        burger.style.display = 'block';
+        document.body.style.overflow = '';
+      }, 400);
+    }
   });
 });
 
@@ -156,21 +165,24 @@ document.addEventListener('click', (e) => {
 });
 
 const swiper = new Swiper('.projects-slider', {
-  loop: false,
-  spaceBetween: 20,
-  slidesPerView: 1,
-  pagination: {
-    el: '.swiper-pagination',
-    clickable: true,
-  },
-  breakpoints: {
-    769: {
-      slidesPerView: 2,
+    loop: false,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
     },
-    1024: {
-      slidesPerView: 3,
-    },
-  }
+    breakpoints: {
+        768: {
+            slidesPerView: 2
+        },
+        1024: {
+            slidesPerView: 3
+        },
+        1280: {
+            slidesPerView: 4
+        }
+    }
 });
 
 const modal = document.getElementById("imageModal");

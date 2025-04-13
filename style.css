@@ -126,6 +126,9 @@ body {
     text-align: center;
     z-index: 1;
     overflow: hidden;
+    animation: fadeInHero 1.2s ease-in-out forwards;
+    opacity: 0;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.15) inset;
 }
 
 .hero .overlay {
@@ -177,23 +180,35 @@ body {
 }
 
 .about h3 {
-    font-size: 24px;
-    margin-top: 30px;
-    margin-bottom: 15px;
+    font-size: 26px;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 20px;
 }
 
 .about p {
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
+    font-size: 18px;
+    line-height: 1.8;
+    color: #333;
+  }
 
 .about ul {
-    list-style-type: disc;
-    padding-left: 20px;
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px;
 }
 
 .about ul li {
-    margin-bottom: 10px;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 12px 18px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    margin-bottom: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    line-height: 1.7;
+    font-size: 18px;
 }
 
 /* Проекты */
@@ -217,17 +232,30 @@ body {
 }
 
 .projects-grid {
-    display:inline-block;
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    align-items: stretch;
     gap: 20px;
 }
 
 .project-card {
     background-color: #f2f2f2;
+    height: 440px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 0 10px rgba(0,0,0,0.05);
     transition: 0.3s;
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 16px;
 }
 
 .project-card:hover {
@@ -241,9 +269,9 @@ body {
 }
 
 .project-card p {
-    font-size: 14px;
-    color: #555;
-}
+    font-size: 16px;
+    line-height: 1.6;
+  }
 
 /* Контакты */
 .contacts {
@@ -303,6 +331,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 8px;
     resize: none;
+    margin-bottom: 8px;
 }
 
 .contact-form button {
@@ -314,6 +343,7 @@ body {
     cursor: pointer;
     font-size: 16px;
     transition: 0.3s;
+    margin-top: 12px;
 }
 
 .contact-form button:hover {
@@ -331,9 +361,10 @@ footer {
 }
 .project-card img {
     width: 100%;
-    height: auto;
+    height: 220px;
+    object-fit: cover;
     border-radius: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 16px;
 }
 
 .project-images {
@@ -344,9 +375,9 @@ footer {
 }
 
 .service-card h4 {
-    font-size: 18px;
-    color: #111;
-}
+    font-size: 19px;
+    line-height: 1.4;
+  }
 
 .project-images img {
     width: calc(33.33% - 7px);
@@ -364,7 +395,7 @@ footer {
 
 .contact-line {
     display: flex;
-    align-items: center;
+    align-items: center; /* изменено с flex-start на center */
     gap: 10px;
     margin-bottom: 15px;
 }
@@ -400,6 +431,8 @@ footer {
         font-weight: bold;
         z-index: 9999;
       }
+    
+    
 
     .header .container {
         flex-direction: column;
@@ -413,8 +446,8 @@ footer {
     }
 
     .hero h1 {
-        font-size: 28px;
-    }
+        font-size: 32px;
+      }
 
     .hero .btn {
         font-size: 16px;
@@ -533,7 +566,8 @@ footer {
 }
 
 .mobile-nav {
-    display: none;
+    display: block;
+    pointer-events: auto;
     position: fixed;
     top: 0;
     left: 0;
@@ -543,13 +577,14 @@ footer {
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     z-index: 9999;
     transform: translateX(-100%);
-    transition: transform 0.3s ease;
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
     padding: 20px;
 }
 
 .mobile-nav.open {
     transform: translateX(0);
-    display: block;
+    opacity: 1;
 }
 
 .mobile-nav-header {
@@ -577,27 +612,29 @@ footer {
     text-decoration: none;
     color: #000;
     font-size: 20px;
+    cursor: pointer;
 }
 
 .projects-slider {
-    padding-bottom: 50px;
+    position: relative;
+    overflow: visible;
+    width: 100%;
+    margin-bottom: 120px;
+}
+
+.swiper-slide {
+    height: 100%;
 }
 
 .swiper-slide .project-card {
-    height: auto;
-}
-
-.swiper-pagination-bullet {
-    background: #ccc;
-    opacity: 1;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    transition: background-color 0.3s ease;
-}
-
-.swiper-pagination-bullet-active {
-    background: #f0c040;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    font-size: 32px;
+    color: #000;
+    font-weight: bold;
 }
 
 .modal {
@@ -621,6 +658,20 @@ footer {
   object-fit: contain;
   border-radius: 12px;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+.about ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    line-height: 1.6;
+  }
+.about ul li i {
+    margin-top: 4px;
+    font-size: 20px;
+    flex-shrink: 0;
+    color: #f0c040;
+    filter: drop-shadow(0 4px 10px rgba(255, 192, 0, 0.5));
 }
 
 .modal-close {
@@ -661,6 +712,8 @@ footer {
     font-size: 48px;
     color: #fff;
     padding: 10px 20px;
+    color: #000;
+    font-size: 28px;
     cursor: pointer;
     pointer-events: auto;
     user-select: none;
@@ -670,3 +723,177 @@ footer {
 .modal-prev:hover, .modal-next:hover {
     transform: scale(1.1);
 }
+
+.project-image {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 16px;
+}
+
+.project-location {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.project-details {
+    font-size: 14px;
+    color: #444;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.project-button {
+    align-self: start;
+    padding: 8px 16px;
+    border: 1px solid #f0c040;
+    color: #000000;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 12px;
+}
+
+.project-button:hover {
+    background-color: #f0c040;
+    color: #fff;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #000 !important;
+    font-size: 36px;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.swiper-button-prev {
+    left: 10px; /* изменено с -100px на 10px */
+}
+
+.swiper-button-next {
+    right: 10px; /* изменено с -100px на 10px */
+}
+
+@media screen and (max-width: 1024px) {
+    .swiper-button-prev {
+      left: -30px;
+    }
+
+    .swiper-button-next {
+      right: -30px;
+    }
+}
+
+.swiper-wrapper {
+    height: auto !important;
+}
+
+.swiper {
+    overflow: hidden;
+}
+
+.swiper-wrapper {
+    box-sizing: border-box;
+}
+
+.swiper-slide {
+    width: auto;
+    box-sizing: border-box;
+}
+
+.contact-line .icon-circle {
+    flex-shrink: 0; /* предотвратит сжатие иконки */
+    margin-top: 4px; /* настроить точное выравнивание по вертикали, если нужно */
+}
+ .certificates-buttons {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 16px;
+   margin-top: 24px;
+ }
+ 
+ .certificates-buttons .btn {
+   padding: 12px 24px;
+   background-color: #f0c040;
+   color: #111;
+   text-decoration: none;
+   border-radius: 8px;
+   font-weight: 600;
+   transition: background-color 0.3s ease, color 0.3s ease;
+ }
+ 
+ .certificates-buttons .btn:hover {
+   background-color: #111;
+   color: #fff;
+ }
+
+ @media screen and (max-width: 768px) {
+    .about ul li {
+      flex-direction: column;
+      gap: 10px;
+      font-size: 17px;
+    }
+  
+    .about ul li i {
+      margin-bottom: 6px;
+      font-size: 22px;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .certificates-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .certificates-buttons .btn {
+      width: 100%;
+      max-width: 300px;
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .service-card img {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 12px;
+    }
+  
+    .service-card h4 {
+      font-size: 17px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+  .about {
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    overflow: hidden;
+  }
+}
+
+@keyframes fadeInHero {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
